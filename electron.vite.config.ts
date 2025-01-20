@@ -8,7 +8,7 @@ export default defineConfig({
   main: {
     plugins: [
       externalizeDepsPlugin(),
-
+      //configuração para copiar os arquivos da pasta resources para a pasta dist, para que o electron possa acessar os arquivos e colocar o icone da aplicação
       viteStaticCopy({
         targets: [
           {
@@ -23,10 +23,12 @@ export default defineConfig({
   preload: {
     plugins: [externalizeDepsPlugin()]
   },
+  //configuração para poder usar variaveis de ambiente
   renderer: {
     define: {
       'process.platform': JSON.stringify(process.platform)
     },
+    //configuração para usar o tailwindcss
     css: {
       postcss: {
         plugins: [tailwindcss({
