@@ -1,0 +1,11 @@
+npm install vite-plugin-static-copy
+
+configurar o arquivo electron.vite.config.ts
+
+colocar os icones na pasta resources
+
+colocar os icones na pasta build
+
+tem que ser gerado automaticamente uma pasta resources com os icones colocados dentro da pasta main que está dentro da pasta out
+
+e por ultimo tem que configurar o arquivo main.js para que ele pegue o icone que está na pasta resources

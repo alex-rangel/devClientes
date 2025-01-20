@@ -1,0 +1,7 @@
+lista de arquivo que é preciso configura para poder usar o tailwind
+
+gerar o arquivo de configuração do tailwind dentro da pasta renderer
+configurar o arquivo de configuração do tailwind
+instalar o postcss para não dar erro no arquivo de configuração global do css do tailwind
+gerar o arquivo com as configurações globais do tailwind
+configurar o arquivo electron.vite.config.js

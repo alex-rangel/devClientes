@@ -1,0 +1,1 @@
+apaguei dois arquivos de configuração do type script que é o pra web e o pra node, e criei um arquivo de configuração único que é o tsconfig.json
