@@ -1,0 +1,15 @@
+export function Home() {
+  return (
+    <>
+      <header className="flex flex-col items-center">
+        <h1 className="title text-5xl">Electron Router DOM</h1>
+
+        <p className="text-lg text-muted-foreground">
+          A react-router-dom adapter for Electron apps.
+        </p>
+
+        
+      </header>
+    </>
+  )
+}
