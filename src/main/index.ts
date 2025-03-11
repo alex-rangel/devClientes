@@ -2,6 +2,8 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import path, { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { createFileRoute, createURLRoute } from 'electron-router-dom'
+import { createTray } from './tray'
+import './ipc'
 
 
 
@@ -11,7 +13,7 @@ function createWindow(): void {
     width: 900,
     height: 670,
     show: false,
-    autoHideMenuBar: true,
+    autoHideMenuBar: false,
     backgroundColor: '#030712',
     //mudar o icone para linux
     ...(process.platform === 'linux' ? { 
@@ -24,6 +26,9 @@ function createWindow(): void {
       sandbox: false
     }
   })
+
+  // chamar para exibir o tray
+  createTray(mainWindow)
 
   //mudar icone para mac
   if(process.platform === 'darwin') {
