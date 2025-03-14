@@ -1,5 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { ElectronAPI, electronAPI } from '@electron-toolkit/preload'
+import { Customer } from '../entities/Customes.entity'
 
 // criando uma interface global para o window e adicionando o electron e api para serem acessados no renderer
 declare global {
@@ -22,7 +23,8 @@ const api = {
   fetchUsers: () => {
     //INVOKE -> Envia uma mensagem para o processo principal e espera uma resposta
     return ipcRenderer.invoke('fetch-users')
-  }
+  },
+  addCustomer: (doc: Customer) => ipcRenderer.invoke("add-customer", doc),
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to
