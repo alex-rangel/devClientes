@@ -1,6 +1,6 @@
 import { app, ipcMain } from 'electron'
 import { Customer } from '../shared/types/Customer.type'
-import { Customer as CustomerEntity } from '../entities/Customes.entity'
+import { Customer as CustomerEntity } from '../entities/Customer.entity'
 import { conection } from '../database/conection'
 
 ipcMain.handle('add-customer', async (_, customer: CustomerEntity) => {

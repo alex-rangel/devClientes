@@ -1,35 +1,19 @@
-import path from 'node:path'
-import { app, ipcMain } from 'electron'
-import fs from 'node:fs'
 import { conection } from './conection'
+import { migrations } from './migrations/migrations'
 
-const runmigration = ()=>{
-    
-const fileDatabaseDir = path.join(app.getPath("userData"),"..", "..", "devClientes", "src", "database", "migrations");
+const runmigration = () => {
 
-    fs.readdir(fileDatabaseDir, (err, files) =>{
-        if(err){
-            console.error(err)
-        }
+    migrations.forEach(migration => {
 
-        files.forEach(file => {
-            fs.readFile(path.join(fileDatabaseDir,file), (err, content) =>{
-                if(err){
-                    console.error(err)
-                }
-                
-                const runMigrationQuery = content.toString()
+        const runMigrationQuery = migration
 
-                conection.query(runMigrationQuery, (error, result) =>{
-                    if(error){
-                        console.log(error)
-                    }
+        conection.query(runMigrationQuery, (error, result) => {
+            if (error) {
+                console.log(error)
+            }
 
-                })
-            })
         })
     })
-
 }
 
 runmigration()

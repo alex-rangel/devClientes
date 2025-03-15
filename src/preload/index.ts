@@ -1,6 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { ElectronAPI, electronAPI } from '@electron-toolkit/preload'
-import { Customer } from '../entities/Customes.entity'
+import { Customer } from '../entities/Customer.entity'
 
 // criando uma interface global para o window e adicionando o electron e api para serem acessados no renderer
 declare global {
