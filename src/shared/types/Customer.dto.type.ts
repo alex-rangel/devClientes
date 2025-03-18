@@ -1,8 +1,8 @@
-export interface NewCustomer{
+export interface CustomerDto {
     name: string;
-    address?: string;
     email: string;
     role: string;
-    phone?: string;
     status: boolean;
+    address?: string;
+    phone?: string;
   }

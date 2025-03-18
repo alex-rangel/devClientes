@@ -1,10 +1,11 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { ElectronAPI, electronAPI } from '@electron-toolkit/preload'
+import { CustomerDto } from '../shared/types/Customer.dto.type'
 import { Customer } from '../entities/Customer.entity'
 
 // criando uma interface global para o window e adicionando o electron e api para serem acessados no renderer
 declare global {
-  export interface Window{
+  export interface Window {
     electron: ElectronAPI
     api: typeof api
   }
@@ -24,7 +25,21 @@ const api = {
     //INVOKE -> Envia uma mensagem para o processo principal e espera uma resposta
     return ipcRenderer.invoke('fetch-users')
   },
-  addCustomer: (doc: Customer) => ipcRenderer.invoke("add-customer", doc),
+  addCustomer: (customer: CustomerDto) => {
+    return ipcRenderer.invoke("add-customer", customer)
+  },
+
+  fetchAllCustomers: () => {
+    return ipcRenderer.invoke('fetch-all-customers')
+  },
+
+  fetchCustomerById: (id: string) => {
+    return ipcRenderer.invoke('fetch-customer-by-id', id)
+  },
+
+  deleteCustomer: (id: string) => {
+    return ipcRenderer.invoke('delete-customer', id)
+  }
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

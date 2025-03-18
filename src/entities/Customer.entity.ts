@@ -1,6 +1,15 @@
-import { NewCustomer } from "../shared/types/NewCustomer.type";
+type CustomerProps = {
+    _id?: string;
+    name: string;
+    address?: string;
+    email: string;
+    role: string;
+    phone?: string;
+    status: boolean;
+}
 
 export class Customer {
+    public _id?: string;
     public name: string;
     public address?: string;
     public email: string;
@@ -8,7 +17,8 @@ export class Customer {
     public phone?: string;
     public status: boolean;
 
-    constructor({ name, address, email, role, phone, status }: NewCustomer) {
+    constructor({ _id, name, address, email, role, phone, status }: CustomerProps) {
+        this._id = _id;
         this.name = name;
         this.address = address;
         this.email = email;

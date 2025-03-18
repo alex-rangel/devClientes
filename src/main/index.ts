@@ -5,7 +5,7 @@ import { createFileRoute, createURLRoute } from 'electron-router-dom'
 import { createTray } from './tray'
 import './ipc'
 import '../database/runMigrations'
-//import './store'
+import './store'
 
 
 
