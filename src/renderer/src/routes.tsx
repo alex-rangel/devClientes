@@ -15,7 +15,7 @@ export function Routes() {
                 <Route path="/" element={<Layout />} >
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/detail" element={<Detail />} />
+                    <Route path="/customer/:id" element={<Detail />} />
                     <Route path="/create" element={<Create />} />
                 </Route>
             }

@@ -1,0 +1,17 @@
+import { BrowserWindow, app, globalShortcut } from "electron";
+
+export function createShortcuts(window: BrowserWindow) {
+
+    app.on("browser-window-focus", () => {
+        globalShortcut.register("CommandOrControl+N", () => {
+            window.webContents.send("new-customer");
+        });
+    });
+
+    app.on("browser-window-blur", () => {
+        globalShortcut.unregisterAll();
+    });
+
+}
+
+Nesse codigo estamos criando um atalho de teclado para a aplicação, que ao ser pressionado, irá enviar uma mensagem para a janela principal da aplicação, para que ela possa criar um novo cliente.Com esse base podemos criar atalhos para qualquer ação que desejarmos.

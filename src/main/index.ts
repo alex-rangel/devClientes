@@ -6,6 +6,7 @@ import { createTray } from './tray'
 import './ipc'
 import '../database/runMigrations'
 import './store'
+import { createShortcuts } from './shortcuts'
 
 
 
@@ -31,6 +32,7 @@ function createWindow(): void {
 
   // chamar para exibir o tray
   createTray(mainWindow)
+  createShortcuts(mainWindow)
 
   //mudar icone para mac
   if(process.platform === 'darwin') {

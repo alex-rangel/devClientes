@@ -39,7 +39,8 @@ const api = {
 
   deleteCustomer: (id: string) => {
     return ipcRenderer.invoke('delete-customer', id)
-  }
+  },
+  getVersionApp: () => ipcRenderer.invoke("get-version")
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

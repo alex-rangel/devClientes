@@ -13,12 +13,10 @@ ipcMain.handle('add-customer', async (_, { name, email, role, status, address, p
 
         // Verifica se o cliente foi cadastrado
         if (result.affectedRows > 0) {
-            console.log("Cliente cadastrado com sucesso")
             // Pega o id do cliente cadastrado
             const customerId = result.insertId
 
             const newCustomer = new Customer({ _id: String(customerId), name, email, role, status, address, phone })
-            console.log("Novo cliente criado:", newCustomer)
         }
 
         return true
@@ -35,7 +33,6 @@ async function fetchAllCustomers(): Promise<Customer[]> {
     try {
         const query = 'SELECT * FROM customer'
         const rows = await conection.promise().query(query) as unknown as [Customer[]]
-        console.log("Clientes encontrados:", rows[0])
         const customers: Customer[] = []
         rows[0].forEach((customer) => {
             customers.push(new Customer({ ...customer, _id: String((customer as any).id) }))
@@ -59,7 +56,6 @@ async function fetchCustomerById(id: string): Promise<Customer | null> {
         const [rows] = await conection.promise().query(query, [id]) as unknown as [Customer[]]
         if (rows.length > 0) {
             const customer = new Customer({ ...rows[0], _id: String((rows[0] as any).id) })
-            console.log("Cliente encontrado:", customer)
             return customer
         }
         return null
@@ -80,14 +76,12 @@ async function deleteCustomer(id: string): Promise<boolean> {
         const customer = fetchCustomerById(id)
 
         if (!customer) {
-            console.log("Cliente não encontrado")
             return false
         }
 
         const query = 'DELETE FROM customer WHERE id = ?'
         const [result] = await conection.promise().query<ResultSetHeader>(query, [id])
         if (result.affectedRows > 0) {
-            console.log("Cliente deletado com sucesso")
             return true
         }
         return false

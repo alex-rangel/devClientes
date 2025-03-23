@@ -1,4 +1,4 @@
-import { ipcMain } from "electron"
+import { app, ipcMain } from "electron"
 
 //Handle
 ipcMain.handle("fetch-users",() => {
@@ -10,3 +10,7 @@ ipcMain.handle("fetch-users",() => {
         { id: 3, nome: "Ana"},
     ]
 })
+
+ipcMain.handle("get-version", () => {
+    return app.getVersion();
+  })
