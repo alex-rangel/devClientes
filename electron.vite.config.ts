@@ -36,6 +36,7 @@ export default defineConfig({
         })]
       }
     },
+    //fianal da configuração do tailwindcss
     resolve: {
       alias: {
         '@renderer': resolve('src/renderer/src')

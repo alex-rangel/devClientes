@@ -1,0 +1,13 @@
+Para configurar o no projeto primeiro se acessa o site https://v3.tailwindcss.com/
+
+Tem que usar a versão 3.4.17
+
+Apos instalar o tailwindcss usando o comando que é passado no site tem que se criar o arquivo tailwind.config.js e o arquivo postcss.config.js
+
+Apos isso é so colocar as configurações que estão no arquivo tailwind.config.js e no arquivo postcss.config.js
+
+Proximo passo é criar uma pasta chamada styles e lá dentro criar um arquivo chamado globals.css esse arquivo vai conter as configurações globais do tailwindcss
+
+Proximo passo é fazer algumas configurações no arquivo electron-vite.config.js, entre essas configurações tem que configurar as variaveis de ambiente nesse arquivo
+
+Depois de tudo isso tem que importar o arquivo globals.css no arquivo main.jsx  
