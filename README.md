@@ -1,12 +1,34 @@
-# devclientes
+# 🖥️ devClientes (App Desktop com Electron)
 
-An Electron application with React and TypeScript
+Aplicativo desktop simples para cadastro e gerenciamento de clientes, desenvolvido com foco em aprendizado prático de **Electron.js**, a tecnologia que permite criar aplicações desktop com HTML, CSS e JavaScript/TypeScript.
 
-## Recommended IDE Setup
+## 🎯 Objetivo do Projeto
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+Este projeto foi criado com o propósito principal de entender como criar, estruturar e empacotar uma aplicação desktop com Electron, além de treinar conceitos de organização de arquivos e manipulação local de dados com Node.js.
 
-## Project Setup
+## 🚀 Funcionalidades
+
+- Cadastro de clientes com nome, e-mail e telefone
+- Listagem e visualização dos dados
+- Armazenamento local (JSON)
+- Interface simples com prompts no terminal
+- Empacotamento em app desktop com Electron
+
+## 🧰 Tecnologias Utilizadas
+
+- **Electron.js** (estruturação do app desktop)
+- **Node.js** + **TypeScript**
+- `fs` (manipulação de arquivos)
+- `inquirer` (interface CLI)
+- `uuid` (geração de IDs únicos)
+
+## 💻 Como rodar localmente
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/alex-rangel/devClientes.git
+cd devClientes
 
 ### Install
 
